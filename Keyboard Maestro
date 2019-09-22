@@ -1,0 +1,3 @@
+tell application "Keyboard Maestro"
+    set theMacroNames to name of (macro id (selectedMacros)))
+end tell
