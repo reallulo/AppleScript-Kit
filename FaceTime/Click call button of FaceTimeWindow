@@ -1,0 +1,24 @@
+tell application "System Events"
+	tell process "Notification Center"
+
+		-- repeat 10 times as Timeout
+		repeat 10 times
+
+			-- Identify whether the FaceTimeWindow of Notification is exist
+			if exists (first window whose value of attribute "AXIdentifier" of group 1 of UI element 1 of scroll area 1 = "FaceTimeWindow") then
+				repeat with i from 1 to count of window
+
+					-- Identify the notification window of FaceTime
+					if value of attribute "AXIdentifier" of group 1 of UI element 1 of scroll area 1 of window i = "FaceTimeWindow" then
+
+						-- Click the call button
+						click button "call" of group 1 of UI element 1 of scroll area 1 of window i
+						exit repeat
+					end if
+				end repeat
+				exit repeat
+			end if
+			delay 0.01
+		end repeat
+	end tell
+end tell

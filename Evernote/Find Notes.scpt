@@ -1,4 +1,3 @@
-
 set note_name to "Key Word"
 
 tell application "印象笔记"
